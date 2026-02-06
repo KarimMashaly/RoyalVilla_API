@@ -24,22 +24,22 @@
         }
 
         public static ApiResponse<TData> Ok(TData data, string message) =>
-                        Create(true, 200, message, data);
+                        Create(true, StatusCodes.Status200OK, message, data);
 
         public static ApiResponse<TData> CreatedAt(TData data,string message) =>
-                        Create(true, 201, message, data);
+                        Create(true, StatusCodes.Status201Created, message, data);
 
         public static ApiResponse<TData> NoContent(string message = "Operation Completed Successfully") =>
-                        Create(true, 201, message);
+                        Create(true, StatusCodes.Status204NoContent, message);
 
         public static ApiResponse<TData> NotFound(string message = "Resource not found") =>
-                        Create(false, 404, message);
+                        Create(false, StatusCodes.Status404NotFound, message);
 
         public static ApiResponse<TData> BadRequest(string message, object? errors = null) =>
-                        Create(false, 400, message, errors: errors);
+                        Create(false, StatusCodes.Status400BadRequest, message, errors: errors);
 
         public static ApiResponse<TData> Confilct(string message) =>
-                        Create(false, 409, message);
+                        Create(false, StatusCodes.Status409Conflict, message);
 
         public static ApiResponse<TData> Error(int statusCode,string message, object? errors = null) =>
                         Create(false, statusCode, message, errors: errors);
