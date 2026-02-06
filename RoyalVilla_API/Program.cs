@@ -23,7 +23,9 @@ namespace RoyalVilla_API
             builder.Services.AddAutoMapper(o => {
                 o.CreateMap<VillaCreateDTO, Villa>().ReverseMap();
                 o.CreateMap<VillaUpdateDTO, Villa>().ReverseMap();
-                });
+                o.CreateMap<VillaDTO, Villa>().ReverseMap();
+                o.CreateMap<VillaUpdateDTO, VillaDTO>().ReverseMap();
+            });
 
             var app = builder.Build();
             await SeedDataAsync(app);
